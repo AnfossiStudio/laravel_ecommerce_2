@@ -25,3 +25,10 @@ Route::get('/', HomeComponent::class)->name('home.index');
 Route::get('/cart', CartComponent::class)->name('cart');
 Route::get('/shop', ShopComponent::class)->name('shop');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__ . '/auth.php';

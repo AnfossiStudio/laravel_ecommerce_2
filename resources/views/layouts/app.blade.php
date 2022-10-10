@@ -14,6 +14,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/theme/favicon.ico')}}">
   <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+
   @livewireStyles
 </head>
 
@@ -50,9 +51,22 @@
           </div>
           <div class="col-xl-3 col-lg-4">
             <div class="header-info header-info-right">
+              @auth
               <ul>
-                <li><i class="fi-rs-key"></i><a href="login.html">Log In </a> / <a href="register.html">Sign Up</a></li>
+                <li><i class="fi-rs-user"></i> {{ Auth::user()->name}} /
+                  <form action="POST" action="{{route('logout')}}">
+                    @csrf
+                    <a href="{{route('logout')}}"
+                      onclick="event.preventDefautl(); this.colsest('form').submit();">Logout</a>
+                  </form>
+                </li>
               </ul>
+              @else
+              <ul>
+                <li><i class="fi-rs-key"></i><a href="{{route('login')}}">Log In </a> / <a
+                    href="{{route('register')}}">Sign Up</a></li>
+              </ul>
+              @endauth
             </div>
           </div>
         </div>
@@ -560,10 +574,10 @@
             <a href="contact.html"> Our location </a>
           </div>
           <div class="single-mobile-header-info">
-            <a href="login.html">Log In </a>
+            <a href="{{route('login')}}">Log In </a>
           </div>
           <div class="single-mobile-header-info">
-            <a href="register.html">Sign Up</a>
+            <a href="{{route('register')}}">Sign Up</a>
           </div>
           <div class="single-mobile-header-info">
             <a href="#">(+1) 0000-000-000 </a>
