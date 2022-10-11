@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
-    <title>Surfside Media</title>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/theme/favicon.ico')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-    @livewireStyles
-</head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Surfside Media</title>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:title" content="">
+        <meta property="og:type" content="">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/theme/favicon.ico')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+        @livewireStyles
+    </head>
 
 <body>
     <header class="header-area header-style-1 header-height-2">
@@ -831,6 +836,8 @@
     <script src="{{ asset('assets/js/main.js?v=3.3')}}"></script>
     <script src="{{ asset('assets/js/shop.js?v=3.3')}}"></script>
     @livewireScripts
+</body>
+</div>
 </body>
 
 </html>

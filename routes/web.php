@@ -19,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', HomeComponent::class)->name('home.index');
 Route::get('/cart', CartComponent::class)->name('cart');
 Route::get('/shop', ShopComponent::class)->name('shop');
